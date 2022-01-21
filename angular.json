@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "joda-lib": {
+      "projectType": "library",
+      "root": "projects/joda-lib",
+      "sourceRoot": "projects/joda-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/joda-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/joda-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/joda-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/joda-lib/src/test.ts",
+            "tsConfig": "projects/joda-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/joda-lib/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "joda-lib"
 }
